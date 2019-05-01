@@ -1,0 +1,2 @@
+web: waitress-serve --port=$PORT music_selector.wsgi:application
+
