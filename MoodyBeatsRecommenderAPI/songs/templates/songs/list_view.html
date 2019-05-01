@@ -1,0 +1,26 @@
+{% extends "songs/base.html" %}
+
+
+{% block content %}
+<h1>No Copyright Songs</h1>
+
+
+{% for song in object_list %}
+
+<p></p>
+<h3>Artist & song:  {{ song.songs }}</h3>
+{% if song.song_embed_code %}
+{{ song.song_embed_code|safe }}<br/>
+{% endif %}
+
+<h3><a href="{% url 'song:detail' slug=song.slug %}" class="btn btn-primary" role="button">Recommendations for {{ song.songs }}</a></h3>
+<!--<h3><a href="{{ artist.get_absolute_url }}" class="btn btn-primary" role="button">Check out {{ song.songs }}</a></h3>-->
+
+<br/>
+{% endfor %}
+
+{% endblock content %}
+
+
+
+

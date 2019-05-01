@@ -1,0 +1,14 @@
+{% extends "songs/base.html" %}
+
+{% block content %}
+<h1>Welcome to the MoodyBeats Recommender API</h1>
+
+<h3>
+To access the RESTful API, append '/api' to this homepage URL.
+Or click this link: <h1><a href="{{ 'https://moody-beats-recommender-api.herokuapp.com/api' }}">API</a></h1><br/>
+<h3>To check out some of our recommendations:</h3>
+<!--<h1><a href="{{ 'http://127.0.0.1:8000/artists' }}">Recommendations</a></h1>--> 
+<h1><a href="{{ 'https://moody-beats-recommender-api.herokuapp.com/songs' }}">Recommendations</a></h1>
+</h3>
+{% endblock %}
+

@@ -1,0 +1,20 @@
+{% extends "songs/base.html" %}
+
+
+{% block content %}
+<h1>Recommendations</h1>
+
+<h3>Recommendations if you like {{ object.songs }}</h3>
+<ul>
+	<li>{{ object.recommendation_one }}</li>
+	<li>{{ object.recommendation_two }}</li>
+	<li>{{ object.recommendation_three }}</li>
+	<li>{{ object.recommendation_four }}</li>
+	<li>{{ object.recommendation_five }}</li>
+</ul>
+
+
+{% endblock content %}
+
+
+

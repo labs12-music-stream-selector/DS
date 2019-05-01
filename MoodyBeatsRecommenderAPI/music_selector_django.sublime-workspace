@@ -1,0 +1,553 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Se",
+				"SentimentModelAdmin"
+			],
+			[
+				"list_",
+				"list_display_links"
+			],
+			[
+				"class",
+				"classify_review"
+			],
+			[
+				"Sentim",
+				"Sentiment"
+			],
+			[
+				"Sentiment",
+				"SentimentForm"
+			],
+			[
+				"pkl",
+				"pkl_objects"
+			],
+			[
+				"pre",
+				"predictions"
+			],
+			[
+				"pre_save",
+				"pre_save_post_receiver"
+			],
+			[
+				"pred",
+				"predict_request"
+			],
+			[
+				"proper",
+				"property_age"
+			],
+			[
+				"property",
+				"property_types"
+			],
+			[
+				"aver",
+				"average_flammability"
+			],
+			[
+				"average",
+				"average_weight"
+			],
+			[
+				"ave",
+				"average_price"
+			],
+			[
+				"random",
+				"random_products"
+			],
+			[
+				"products",
+				"products_list_set"
+			],
+			[
+				"pro",
+				"products_list"
+			],
+			[
+				"non",
+				"nount_list"
+			],
+			[
+				"produc",
+				"product_stealability"
+			],
+			[
+				"p",
+				"product_stealability"
+			],
+			[
+				"fla",
+				"flammability"
+			],
+			[
+				"pr",
+				"product_identifier"
+			],
+			[
+				"fl",
+				"flammability_of_product"
+			],
+			[
+				"weight",
+				"weight_of_product"
+			],
+			[
+				"price",
+				"price_of_product"
+			],
+			[
+				"product",
+				"product_type"
+			],
+			[
+				"joke",
+				"joke_evaluation"
+			],
+			[
+				"do",
+				"do_not"
+			],
+			[
+				"my_h",
+				"my_hair"
+			],
+			[
+				"cars",
+				"cars_driven"
+			],
+			[
+				"BAE",
+				"BASE_DIR"
+			],
+			[
+				"car",
+				"carpool_capacity"
+			],
+			[
+				"X_",
+				"X_test_scaled"
+			],
+			[
+				"X_train",
+				"X_train_scaled"
+			],
+			[
+				"string",
+				"string_unique"
+			],
+			[
+				"creat",
+				"created_slug"
+			],
+			[
+				"oj",
+				"objects"
+			],
+			[
+				"form",
+				"form_valid"
+			],
+			[
+				"Course",
+				"CourseForm"
+			],
+			[
+				"MEDIA",
+				"MEDIA_URL"
+			],
+			[
+				"slu",
+				"slugify"
+			],
+			[
+				"Vid",
+				"VideoListView"
+			],
+			[
+				"De",
+				"DetailView"
+			],
+			[
+				"Video",
+				"VideoAdmin"
+			],
+			[
+				"post",
+				"post_detail"
+			],
+			[
+				"clas",
+				"Classifier"
+			],
+			[
+				"fo",
+				"form"
+			],
+			[
+				"Ca",
+				"CascadeClassifier"
+			],
+			[
+				"rec",
+				"recognizer"
+			],
+			[
+				"y",
+				"y_labels"
+			],
+			[
+				"label",
+				"label_ids"
+			],
+			[
+				"x",
+				"x_train"
+			],
+			[
+				"image",
+				"image_array"
+			],
+			[
+				"face",
+				"face_cascade"
+			],
+			[
+				"frame",
+				"frames_per_second"
+			],
+			[
+				"vid",
+				"video_type_cv2"
+			],
+			[
+				"get",
+				"get_video_type"
+			],
+			[
+				"V",
+				"VIDEO_TYPE"
+			],
+			[
+				"change",
+				"change_res"
+			],
+			[
+				"S",
+				"STD_DIMENSIONS"
+			],
+			[
+				"f",
+				"frame"
+			],
+			[
+				"l",
+				"lastName"
+			],
+			[
+				"auto",
+				"auto_now_add"
+			],
+			[
+				"Busi",
+				"BusinessForm"
+			],
+			[
+				"Busin",
+				"BusinessAdmin"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"pub",
+				"pub_date"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/sammylee/Desktop/music_selector_django"
+	],
+	"file_history":
+	[
+		"/Volumes/Seagate Backup Plus Drive/music-selector/.env",
+		"/Users/sammylee/Desktop/housing_2/housing/utils.py",
+		"/Users/sammylee/Desktop/housing_2/zestimate/views.py",
+		"/Users/sammylee/Desktop/housing_2/housing/urls.py",
+		"/Users/sammylee/Desktop/housing_2/templates/home.html",
+		"/Users/sammylee/Desktop/housing_2/templates/prediction_2.html",
+		"/Users/sammylee/Desktop/housing_2/zestimate/admin.py",
+		"/Users/sammylee/Desktop/housing_2/zestimate/forms.py",
+		"/Users/sammylee/Desktop/housing_2/templates/base.html",
+		"/Users/sammylee/Desktop/housing_2/zestimate/models.py",
+		"/Users/sammylee/Desktop/housing_2/zestimate/vectorizer.py",
+		"/Users/sammylee/Desktop/housing_2/zestimate/api/urls.py",
+		"/Users/sammylee/Desktop/twitoff/twitoff/db.sqlite3",
+		"/Users/sammylee/Desktop/twitoff/twitoff/app.py",
+		"/Users/sammylee/Desktop/twitoff/twitoff/templates/base.html",
+		"/Users/sammylee/Desktop/twitoff/Procfile",
+		"/Users/sammylee/Desktop/twitoff/twitoff/templates/index.html",
+		"/Users/sammylee/Desktop/microblog/config.py",
+		"/Users/sammylee/Desktop/microblog/.gitignore",
+		"/Users/sammylee/Desktop/doublebagger/src/post/models.py",
+		"/Users/sammylee/Desktop/doublebagger/src/doublebagger_blog/settings.py",
+		"/Users/sammylee/Desktop/suorganizer/src/suorganizer/suorganizer/settings.py",
+		"/Users/sammylee/Desktop/lambda_SQL/demo_data.py",
+		"/Users/sammylee/Desktop/lambda_SQL/northwind.py",
+		"/Users/sammylee/Desktop/lambda_SQL/assignment_2_helper.py",
+		"/Users/sammylee/Desktop/Software-Engineering/ACME_Company/acme.py",
+		"/Users/sammylee/Desktop/tweetme/src/tweetme/settings.py",
+		"/Users/sammylee/Desktop/tweetme/src/tweetme/settings/__init__.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/settings/production.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/settings/__init__.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/settings/local.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/settings/base.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/urls.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/views.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/templates/home.html",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/static-storage/static/css/custom.css",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/settings.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/base.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/src/tweetme/base.py",
+		"/Users/sammylee/Desktop/tweetme/tweetme/.gitignore",
+		"/Users/sammylee/vrx2.txt",
+		"/Users/sammylee/lpthw/ex_1.py",
+		"/Users/sammylee/Desktop/srvup5/Procfile",
+		"/Users/sammylee/Desktop/srvup4/src/srvup/settings.py",
+		"/Users/sammylee/Desktop/srvup4/src/courses/models.py",
+		"/Users/sammylee/Desktop/srvup4/src/courses/admin.py",
+		"/Users/sammylee/Desktop/srvup4/src/courses/urls.py",
+		"/Users/sammylee/Desktop/srvup4/src/courses/templates/courses/course_list.html",
+		"/Users/sammylee/Desktop/srvup4/Procfile",
+		"/Users/sammylee/Desktop/srvup4/src/srvup/utils.py",
+		"/Users/sammylee/Desktop/srvup4/src/static_in_env/js/bootstrap.min.js",
+		"/Users/sammylee/Desktop/srvup4/src/srvup/views.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/templates/videos/snippets/video-search-form.html",
+		"/Users/sammylee/Desktop/srvup4/src/templates/defaults/head.html",
+		"/Users/sammylee/Desktop/srvup4/src/templates/defaults/scripts.html",
+		"/Users/sammylee/Desktop/srvup4/src/static_in_env/css/bootstrap.min.css",
+		"/Users/sammylee/Desktop/srvup4/src/videos/mixins.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/admin.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/views.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/models.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/urls.py",
+		"/Users/sammylee/Desktop/srvup4/src/srvup/urls.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/templates/videos/video_form.html",
+		"/Users/sammylee/Desktop/srvup4/src/videos/templates/videos/video_confirm_delete.html",
+		"/Users/sammylee/Desktop/srvup4/src/videos/templates/videos/video_detail.html",
+		"/Users/sammylee/Desktop/srvup4/src/videos/forms.py",
+		"/Users/sammylee/Desktop/srvup4/src/videos/templates/videos/video_list.html",
+		"/Users/sammylee/Desktop/srvup4/src/videos/templates/videos/mixins.py",
+		"/Users/sammylee/Desktop/srvup4/roadmap.md",
+		"/Users/sammylee/Desktop/srvup4/src/templates/home.html",
+		"/Users/sammylee/Desktop/srvup4/src/templates/base.html",
+		"/Users/sammylee/Desktop/srvup4/requirements.txt",
+		"/Users/sammylee/Desktop/srvup4/.gitignore",
+		"/Users/sammylee/Desktop/trydjango19/trydjango19.sublime-project",
+		"/Users/sammylee/Desktop/trydjango19/.gitignore",
+		"/Users/sammylee/Desktop/trydjango19/src/trydjango19/settings.py",
+		"/Users/sammylee/Desktop/ecommerce/.gitignore",
+		"/Users/sammylee/Desktop/username.py",
+		"/Users/sammylee/Desktop/stocker/stocker.py",
+		"/Users/sammylee/Desktop/sentiment/movieclassifier/templates/_formhelpers.html",
+		"/Users/sammylee/Desktop/sentiment/movieclassifier/templates/thanks.html",
+		"/Users/sammylee/Desktop/sentiment/movieclassifier/templates/results.html",
+		"/Users/sammylee/Desktop/sentiment/movieclassifier/templates/reviewform.html",
+		"/Users/sammylee/Desktop/sentiment/1st_flask_app_2/templates/_formhelpers.html",
+		"/Users/sammylee/Desktop/NLTK/portrait.txt",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube_Seagate/faces.py",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube_Seagate/faces-train.py",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube_Seagate/images/maddy/7.jpg",
+		"/Users/sammylee/Desktop/OpenCV_Tube/faces.py",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube/base.py",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube/record-video.py",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube/change-res.py",
+		"/Volumes/Seagate Backup Plus Drive/Dev/OpenCV_Tube/camera-test.py",
+		"/Users/sammylee/Desktop/susanli_MLwithPython/Consumer_Complaints.csv",
+		"/Users/sammylee/mldev/fruit_data_with_colors.txt",
+		"/Users/sammylee/mldev/honors_data.csv",
+		"/Users/sammylee/Desktop/udacity/decision_tree/Decision_Tree_Accuracy.py",
+		"/Users/sammylee/Desktop/udacity/decision_tree/ClassifyDT.py",
+		"/Users/sammylee/Desktop/kaggle/udacity_GaussianNB/studentCode.py",
+		"/Users/sammylee/Desktop/kaggle/udacity/classifyNB.py",
+		"/Users/sammylee/Desktop/django_projects/hellowebapp/collection/templates/businesses/business_detail.html",
+		"/Users/sammylee/Desktop/django_projects/hellowebapp/collection/static/css/style.css",
+		"/Users/sammylee/Desktop/django_projects/hellowebapp/collection/templates/about.html",
+		"/Users/sammylee/Desktop/django_projects/hellowebapp/collection/templates/contact.html",
+		"/Users/sammylee/Desktop/django_projects/hellowebapp/requirements.txt",
+		"/Users/sammylee/Desktop/django_projects/hellowebapp/.gitignore",
+		"/Users/sammylee/Desktop/django_projects/suorganizer/.gitignore",
+		"/Users/sammylee/Desktop/django_projects/suorganizer/requirements.txt"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "music_selector_django.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 219.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
