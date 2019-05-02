@@ -13,12 +13,10 @@ def index():
 
 
 @app.route('/api/<track_title>')
-def get_mood(track_title):
-    pkl_file = open('track_titles_word2vec.pkl', 'rb')
+def get_track_recomm(track_title):
+    pkl_file = open('track_titles_word2vec.pkl', 'rb')  # pickle file with trained model from AWS SageMaker
     word2vec_model = pickle.load(pkl_file)
 
-    # pkl_file2 = open('recomm_by_title.pkl', 'rb') -- errored out
-    # recomm_by_title = pickle.load(pkl_file2)
     df = pd.read_csv('mood-title-tags-artists.csv')
 
     # print('first 5 lines of df:', df.head())
@@ -27,22 +25,25 @@ def get_mood(track_title):
     track_words = track_words.split(' ')  # creates list with 1+ string
     # print('track_words is:', track_words)
     # print('type of track_words is:', type(track_words))
-    mood_string = ''
+    track_recomm_list = []
     for word in track_words[:2]:
         try:
             output_list = word2vec_model.wv.most_similar(word, topn=1)
-            print('output_list is:', output_list)
+            print('\noutput_list is:', output_list)
             output_word = output_list[0][0]
-            mood = df.loc[df['title'].str.contains(word)]['mood'].values
-            mood = str(mood)
-            mood_string += mood
+            track_recomm = df.loc[df['title'].str.contains(output_word)]['title'].values
+            artist_recomm = df.loc[df['title'].str.contains(output_word)]['artist_name'].values
+            track_recomm = list(zip(track_recomm, artist_recomm))
+            track_recomm_list.append(track_recomm)
+            print('mood of track_recomm is:', \
+                  df[df['title'].str.contains(output_word)]['mood'].values)
+
         except Exception as e:
             print(e, 'occurred.', word, 'not found in title vocabulary.')
             continue
-    print(mood_string)
-    return mood_string
-    # r = pd.Series(recomm_by_title()).to_json()
-    # print(r)
+    print('track_recomm_list is:', track_recomm_list)
+    print('type of track_recomm_list is:', type(track_recomm_list))
+    return pd.Series(track_recomm_list).to_json()
 
 
 if __name__ == '__main__':
