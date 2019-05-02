@@ -1,13 +1,15 @@
 from flask import Flask, request
+from flask_cors import CORS
 import pandas as pd
 import pickle
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
 def index():
-    return "Add '/api/track-title-with-spaces-between-words' to end of Heroku app URL"
+    return "Add '/api/Track Title With Spaces Between Words' to end of Heroku app URL in address field. Or, for HTML-compliance, '/api/Track%20Title%20With..."
 
 
 @app.route('/api/<track_title>')
