@@ -8,16 +8,26 @@ from django.db.models.signals import pre_save
 
 # Create your models here.
 class Song(models.Model):
-	songs					= models.CharField(max_length=200, null=True, blank=True)
-	video_id				= models.CharField(max_length=11, null=True, blank=True)
-	song_embed_code			= models.TextField(null=True, blank=True)
-	mood 					= models.CharField(max_length=20, null=True, blank=True)
-	slug 					= models.SlugField(max_length=200, unique=True)
-	recommendation_one 		= models.CharField(max_length=140, null=True, blank=True)
-	recommendation_two 		= models.CharField(max_length=140, null=True, blank=True)
-	recommendation_three 	= models.CharField(max_length=140, null=True, blank=True)
-	recommendation_four 	= models.CharField(max_length=140, null=True, blank=True)
-	recommendation_five 	= models.CharField(max_length=140, null=True, blank=True)
+	songs							= models.CharField(max_length=200, null=True, blank=True)
+	video_id						= models.CharField(max_length=11, null=True, blank=True)
+	song_embed_code					= models.TextField(null=True, blank=True)
+	mood 							= models.CharField(max_length=20, null=True, blank=True)
+	slug 							= models.SlugField(max_length=200, unique=True)
+	recommendation_one 				= models.CharField(max_length=140, null=True, blank=True)
+	recommendation_one_link 		= models.URLField(null=True, blank=True)
+	recommendation_one_embed_code	= models.TextField(null=True, blank=True)
+	recommendation_two 				= models.CharField(max_length=140, null=True, blank=True)
+	recommendation_two_link 		= models.URLField(null=True, blank=True)
+	recommendation_two_embed_code	= models.TextField(null=True, blank=True)
+	recommendation_three 			= models.CharField(max_length=140, null=True, blank=True)
+	recommendation_three_link 		= models.URLField(null=True, blank=True)
+	recommendation_three_embed_code	= models.TextField(null=True, blank=True)
+	recommendation_four 			= models.CharField(max_length=140, null=True, blank=True)
+	recommendation_four_link 		= models.URLField(null=True, blank=True)
+	recommendation_four_embed_code	= models.TextField(null=True, blank=True)
+	recommendation_five 			= models.CharField(max_length=140, null=True, blank=True)
+	recommendation_five_link 		= models.URLField(null=True, blank=True)
+	recommendation_five_embed_code	= models.TextField(null=True, blank=True)
 
 
 	def __str__(self):

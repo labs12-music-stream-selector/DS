@@ -1,19 +1,43 @@
 {% extends "songs/base.html" %}
 
-
 {% block content %}
-<h1>Recommendations</h1>
+<div class="container center-div">
+	{% include "songs/search_form.html" %}
+	</div>
+<div class="col-sm-6 col-sm-offset-3">
+<h1>MoodiBeats Recommendations</h1>
 
-<h3>Recommendations if you like {{ object.songs }}</h3>
+<h3>Artist & song:  {{ object.songs }}</h3>
+{% if object.song_embed_code %}
+{{ object.song_embed_code|safe }}<br/>
+{% endif %}
+
+
+<h3>Recommendations if you like {{ object.songs }}</h3><br/><br/>
 <ul>
-	<li>{{ object.recommendation_one }}</li>
-	<li>{{ object.recommendation_two }}</li>
-	<li>{{ object.recommendation_three }}</li>
-	<li>{{ object.recommendation_four }}</li>
-	<li>{{ object.recommendation_five }}</li>
+	{% if object.recommendation_one %}
+	<li><h3>{{ object.recommendation_one }}</h3><br/>
+	{{ object.recommendation_one_embed_code|safe }}</li>
+	{% endif %}
+	{% if object.recommendation_two %}
+	<li><h3>{{ object.recommendation_two }}</h3><br/>
+	{{ object.recommendation_two_embed_code|safe }}</li>
+	{% endif %}
+	{% if object.recommendation_three %}
+	<li><h3>{{ object.recommendation_three }}</h3><br/>
+	{{ object.recommendation_three_embed_code|safe }}</li>
+	{% endif %}
+	{% if object.recommendation_four %}
+	<li><h3>{{ object.recommendation_four }}</h3><br/>
+	{{ object.recommendation_four_embed_code|safe }}</li>
+	{% endif %}
+	{% if object.recommendation_five %}
+	<li><h3>{{ object.recommendation_five }}</h3><br/>
+	{{ object.recommendation_five_embed_code|safe }}</li>
+	{% endif %}
 </ul>
 
-
+<div class="col-sm-6 col-sm-offset-3">
 {% endblock content %}
 
 

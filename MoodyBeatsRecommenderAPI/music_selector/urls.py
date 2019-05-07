@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from rest_framework.documentation import include_docs_urls
+from rest_framework.schemas import get_schema_view 
 from rest_framework_swagger.views import get_swagger_view
 
 from .views import home
@@ -25,12 +27,16 @@ API_TITLE = 'MoodyBeats-Recommender API'
 API_DESCRIPTION = 'A Web API for generating song recommendations based on User similarity'
 
 schema_view_swagger = get_swagger_view(title=API_TITLE)
+schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^songs/', include('songs.urls', namespace='song')),
-    url(r'^api/', include('api.urls')),
+    url(r'^api/', include('api.urls', namespace='api')),
+    url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
+    url(r'^schema/', schema_view),
     url(r'^swagger-docs/', schema_view_swagger),
 ]
 
