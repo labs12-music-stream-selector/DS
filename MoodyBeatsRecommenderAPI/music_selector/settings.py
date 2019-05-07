@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd-party
- 
+    'crispy_forms',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'rest_framework_swagger',
 
@@ -48,12 +49,21 @@ INSTALLED_APPS = [
     'songs',
     'api',
 ]
-
+"""
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':[
         'rest_framework.permissions.AllowAny',
     ]
 }
+"""
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -66,10 +76,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+"""
 CORS_ORIGIN_WHITELIST  = (
-    'http://localhost:3000/'
+    'http://localhost:3000/',
+    #'https://festive-fermi-904c30.netlify.com/',
+    #'https://festive-fermi-904c30.netlify.com/',
+    'https://moodybeats.netlify.com/'
 )
+"""
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'music_selector.urls'
 
