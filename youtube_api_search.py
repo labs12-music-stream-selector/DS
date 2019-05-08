@@ -10,6 +10,13 @@ import os
 load_dotenv()
 
 
+def html_reverse_escape(string):
+    '''Reverse escapes HTML code in string into ASCII text.'''
+    # see Ned Batchelder post https://stackoverflow.com/questions/2077283/escape-special-html-characters-in-python
+    return (string \
+        .replace("&amp;", "&").replace("&#39;", "'").replace("&quot;", '"'))
+
+
 def main():
     api_service_name = 'youtube'
     api_version = 'v3'
@@ -21,6 +28,7 @@ def main():
     request = youtube.search().list(
         part='id,snippet',
         maxResults=10,
+        order='date',
         q='instrumental',
         relevanceLanguage='en',
         type='video',
@@ -31,14 +39,23 @@ def main():
     videos = []
     result_count = 0
 
-    for search_result in request.items():
-        print('search_result', result_count, ': ', search_result)
+    for search_result in request['items']:
+        video_title = search_result['snippet']['title']  # .replace("&quot;", '"')
+        video_title = html_reverse_escape(video_title)
+        video_id = search_result['id']['videoId']
+        try:
+            print('search_result', result_count, ':') 
+            print(video_title)
+            print('video_id is:', video_id, '\n')
+            # videos.append('{} ({})'.format(video_title, video_id))
+        except UnicodeError as e:
+            print('Unicode error prevented printing', result_count, '\n')
+            result_count += 1
+            continue
         result_count += 1
-        # videos.append('{} ({})'.format(request['item']['snippet']['title'],
-        #                                request['item']['id']['videoId']))
     
 
-    # print('Videos:\n', '\n'.join(videos))
+    # print('\nVideos:\n', '\n'.join(videos))
     # return videos
 
 
