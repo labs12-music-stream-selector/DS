@@ -1,10 +1,18 @@
 {% extends "songs/base.html" %}
 
 {% block content %}
-<div class="container center-div">
-	{% include "songs/search_form.html" %}
+	<div class='text-center'>
+	{% include "songs/search_form.html" with request=request %}
+  {% if request.GET.q %}
+    <p>You searched for <b>{{ request.GET.q }}</b></p>
+  {% endif %}
+  
 	</div>
-<div class="col-sm-6 col-sm-offset-3">
+
+<div class='container'>
+<div class='row'>
+<div class='col'>
+
 <h1>MoodiBeats Recommendations</h1>
 
 <h3>Artist & song:  {{ object.songs }}</h3>
@@ -12,32 +20,34 @@
 {{ object.song_embed_code|safe }}<br/>
 {% endif %}
 
-
-<h3>Recommendations if you like {{ object.songs }}</h3><br/><br/>
+<br/>
+<h3>Recommendations for <span style='color:blue;'>{{ object.songs }}</span></h3><br/><br/>
 <ul>
 	{% if object.recommendation_one %}
-	<li><h3>{{ object.recommendation_one }}</h3><br/>
-	{{ object.recommendation_one_embed_code|safe }}</li>
+	<li><h3>{{ object.recommendation_one }}</h3>
+	{{ object.recommendation_one_embed_code|safe }}</li><br/>
 	{% endif %}
 	{% if object.recommendation_two %}
-	<li><h3>{{ object.recommendation_two }}</h3><br/>
-	{{ object.recommendation_two_embed_code|safe }}</li>
+	<li><h3>{{ object.recommendation_two }}</h3>
+	{{ object.recommendation_two_embed_code|safe }}</li><br/>
 	{% endif %}
 	{% if object.recommendation_three %}
-	<li><h3>{{ object.recommendation_three }}</h3><br/>
-	{{ object.recommendation_three_embed_code|safe }}</li>
+	<li><h3>{{ object.recommendation_three }}</h3>
+	{{ object.recommendation_three_embed_code|safe }}</li><br/>
 	{% endif %}
 	{% if object.recommendation_four %}
-	<li><h3>{{ object.recommendation_four }}</h3><br/>
-	{{ object.recommendation_four_embed_code|safe }}</li>
+	<li><h3>{{ object.recommendation_four }}</h3>
+	{{ object.recommendation_four_embed_code|safe }}</li><br/>
 	{% endif %}
 	{% if object.recommendation_five %}
-	<li><h3>{{ object.recommendation_five }}</h3><br/>
-	{{ object.recommendation_five_embed_code|safe }}</li>
+	<li><h3>{{ object.recommendation_five }}</h3>
+	{{ object.recommendation_five_embed_code|safe }}</li><br/>
 	{% endif %}
 </ul>
 
-<div class="col-sm-6 col-sm-offset-3">
+</div>
+</div>
+</div>
 {% endblock content %}
 
 
