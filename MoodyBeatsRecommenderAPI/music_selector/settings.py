@@ -31,23 +31,31 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # 3rd-party
     'crispy_forms',
     'rest_framework',
     'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'rest_auth.registration',
     'corsheaders',
     'rest_framework_swagger',
 
     # local app
     'songs',
     'api',
+    'newsletter',
 ]
 """
 REST_FRAMEWORK = {
@@ -91,7 +99,7 @@ ROOT_URLCONF = 'music_selector.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -170,3 +178,35 @@ STATIC_ROOT = "staticfiles"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+
+########################################
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SITE_ID = 1
+
+# ACCOUNT_ACTIVATION_DAYS = 7
+
+# DEFAULT_FROM_EMAIL = 'testing@example.com'
+
+# EMAIL_HOST_USER = ''
+
+# EMAIL_HOST_PASSWORD = ''
+
+# EMAIL_USE_TLS = False
+
+# EMAIL_PORT = 1025
+
+# LOGIN_REDIRECT_URL = "home"
+
+
+
+
+
+
+
+
+
+

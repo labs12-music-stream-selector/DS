@@ -1,9 +1,8 @@
-{% load crispy_forms_tags %}
+
 
 <form method='GET' action='{% url "song:song" %}'>
-	<input type='text' name='q' placeholder='Search songs' value='{{ request.GET.q }}'/>
-	<input type='Submit' />
-	{{ form|crispy }}
-</div>
+	<input type='text' size="40" name='q' placeholder='Search songs by mood' value='{{ request.GET.q }}'/>
+	<input type='Submit' class="btn btn-primary" role="button" />
+
 </form>
 

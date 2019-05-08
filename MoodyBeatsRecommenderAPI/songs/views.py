@@ -1,14 +1,20 @@
 from django.shortcuts import render
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
-from django.views.generic import ListView, DetailView
+from django.views.generic import (
+	ListView,
+	DetailView,
+)
 
 from .models import Song
+
 
 class SongListView(ListView):
 	#model = Song
 	template_name = 'songs/list_view.html'
+	paginate_by = 5
 
 	def get_queryset(self, *args, **kwargs):
 		qs = Song.objects.all()
@@ -26,9 +32,12 @@ class SongListView(ListView):
 		return qs
 		
 	
-
 class SongDetailView(DetailView):
 	queryset = Song.objects.all()
+
+
+
+
 
 
 
