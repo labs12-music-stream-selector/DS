@@ -3,12 +3,24 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
 
+from taggit.managers import TaggableManager
+
 
 
 
 # Create your models here.
+class Tag(models.Model):
+	name = models.TextField(null=True, blank=True)
+
+	def __str__(self):
+		return self.name
+
+
 class Song(models.Model):
 	songs							= models.CharField(max_length=200, null=True, blank=True)
+	tags 							= TaggableManager()
+	# api_tags						= models.ManyToManyField('Song', related_name='tag_songs', null=True, blank=True)
+	api_tags						= models.ManyToManyField(Tag)
 	video_id						= models.CharField(max_length=11, null=True, blank=True)
 	song_embed_code					= models.TextField(null=True, blank=True)
 	mood 							= models.CharField(max_length=20, null=True, blank=True)

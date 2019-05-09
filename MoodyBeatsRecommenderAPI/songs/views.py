@@ -22,6 +22,7 @@ class SongListView(ListView):
 		if query is not None:
 			qs = qs.filter(
 				Q(songs__icontains=query)|
+				Q(tags__name__icontains=query)|
 				Q(mood__icontains=query)|
 				Q(recommendation_one__icontains=query)|
 				Q(recommendation_two__icontains=query)|

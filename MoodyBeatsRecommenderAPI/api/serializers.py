@@ -1,8 +1,17 @@
 from rest_framework import serializers
 
-from songs.models import Song
+from songs.models import Song, Tag
+
+
+class TagSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Tag
+		fields = '__all__'
+	
 
 class SongSerializer(serializers.ModelSerializer):
+	api_tags = TagSerializer(many=True)
+
 	class Meta:
 		model = Song
 		fields = (
@@ -10,6 +19,7 @@ class SongSerializer(serializers.ModelSerializer):
 			#'slug',
 			'songs',
 			'mood',
+			'api_tags',
 			'video_id',
 			#'song_embed_code',
 			'recommendation_one',
@@ -28,6 +38,7 @@ class SongSerializer(serializers.ModelSerializer):
 			#'slug',
 			'songs',
 			'mood',
+			'api_tags',
 			'video_id',
 			#'song_embed_code',
 			'recommendation_one',
