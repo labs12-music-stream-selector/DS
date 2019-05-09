@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Song
+from .models import Song, Tag
 
 class SongModelAdmin(admin.ModelAdmin):
 	models = Song 
@@ -9,4 +9,5 @@ class SongModelAdmin(admin.ModelAdmin):
 
 admin.site.register(Song, SongModelAdmin)
 
+admin.site.register(Tag)
 

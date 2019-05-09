@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework import generics
-from songs.models import Song
+from songs.models import Song, Tag
 from .serializers import SongSerializer
 
 class SongListAPIView(generics.ListCreateAPIView):

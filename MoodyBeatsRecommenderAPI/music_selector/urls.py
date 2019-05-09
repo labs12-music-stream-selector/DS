@@ -26,6 +26,11 @@ from django.views.generic import TemplateView, RedirectView
 
 from .views import HomeView
 
+#from allauth.account.views import confirm_email as allauthemailconfirmation
+#from allauth.account.views import confirm_email
+
+from accounts import views as accounts_views
+
 API_TITLE = 'MoodiBeats-Recommender API'
 
 API_DESCRIPTION = 'A Web API for generating song recommendations based on User similarity'
@@ -34,6 +39,7 @@ schema_view_swagger = get_swagger_view(title=API_TITLE)
 schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns = [
+    url(r'^', include('django.contrib.auth.urls')),
     url(r'^admin/', admin.site.urls),
     # url(r'^$', home, name='home'),
     url(r'^$', HomeView.as_view(), name='home'),
@@ -42,15 +48,24 @@ urlpatterns = [
     url(r'^api/rest-auth/', include('rest_auth.urls')),
     url(r'^api/rest-auth/registration/', include('rest_auth.registration.urls')),
 
+    #url(r'^api/rest-auth/registration/account-confirm-email/(?P<key>[-:\w]+)/$', allauthemailconfirmation, name="account_confirm_email"),
+
+    #url(r'^api/rest-auth/registration/account-confirm-email/(?P<key>.+)/$', confirm_email, name='account_confirm_email'),
+
     # url(r'^api/rest-auth/registration/account-confirm-email/(?P<key>.+)/$', confirm_email, name='account_confirm_email'),
 
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
     url(r'^schema/', schema_view),
     url(r'^swagger-docs/', schema_view_swagger),
+    # registration
+    # url(r'^signup/$', accounts_views.signup, name='signup'),
+    # Django auth stuff interferes with rest-auth stuff so I have to choose one or the other
 
+    # url(r'^accounts/', include('registration.backends.simple.urls')),
 
-    #url(r'^accounts/', include('registration.backends.simple.urls')),
+    #url(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    #url(r'^accounts/', include('django.contrib.auth.urls')),
 
     url(r'^terms-of-service/$', TemplateView.as_view(template_name='terms_and_conditions.html'), name='terms'),
 ]

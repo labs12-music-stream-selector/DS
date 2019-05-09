@@ -31,8 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'registration',
     'django.contrib.admin',
+    #'registration',
+    #'django_registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,11 +52,14 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'corsheaders',
     'rest_framework_swagger',
+    'taggit',
+    'widget_tweaks',
 
     # local app
     'songs',
     'api',
     'newsletter',
+    'accounts',
 ]
 """
 REST_FRAMEWORK = {
@@ -68,8 +72,26 @@ REST_FRAMEWORK = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':[
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ]
 }
+
+"""
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+"""
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -100,6 +122,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, "templates")],
+        #'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -183,7 +206,7 @@ STATICFILES_DIRS = [
 ########################################
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SITE_ID = 1
 
@@ -201,8 +224,17 @@ SITE_ID = 1
 
 # LOGIN_REDIRECT_URL = "home"
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+EMAIL_HOST = 'smtp.sendgrid.net'
 
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'some-dude')
+
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'something-something')
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
 
 
 

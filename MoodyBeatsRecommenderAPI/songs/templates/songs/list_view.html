@@ -37,6 +37,8 @@
 
 <h3><a href="{% url 'song:detail' slug=song.slug %}" class="btn btn-primary" role="button">Recommendations for {{ song.songs }}</a></h3>
 <!--<h3><a href="{{ artist.get_absolute_url }}" class="btn btn-primary" role="button">Check out {{ song.songs }}</a></h3>-->
+<p class="tags">Tags:{% for tag in song.tags.all %}<a href="{% url 'song:song_by_tag' tag.slug %}">{{ tag.name }}</a>{% if not forloop.last %},  {% endif %}{% endfor %}</p>
+
 
 <br/>
 
