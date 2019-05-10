@@ -66,6 +66,16 @@ def pre_save_song_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_song_receiver, sender=Song)
+
+
+class NewVideo(models.Model):
+	video_id 	= models.CharField(max_length=11, null=True, blank=True)
+	video_title = models.TextField(null=True, blank=True)
+
+	def __str__(self):
+		return self.video_title
+
+	
 	
 
 

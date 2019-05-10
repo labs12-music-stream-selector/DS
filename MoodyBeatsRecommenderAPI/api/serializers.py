@@ -1,6 +1,11 @@
 from rest_framework import serializers
 
-from songs.models import Song, Tag
+from songs.models import (
+	Song,
+	Tag,
+	NewVideo
+)
+
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -53,6 +58,13 @@ class SongSerializer(serializers.ModelSerializer):
 			'recommendation_five_link',
 		)
 		#lookup_field = 'slug'
+
+class NewVideoSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = NewVideo
+		fields = '__all__'
+
+
 
 
 
