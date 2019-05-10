@@ -1,50 +1,13 @@
-from django.shortcuts import render
-from django.db.models import Q
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.management.base import BaseCommand
 
-# Create your views here.
-from django.views.generic import (
-	ListView,
-	DetailView,
-)
-
-from .models import Song
-
-
-class SongListView(ListView):
-	#model = Song
-	template_name = 'songs/list_view.html'
-	paginate_by = 5
-
-	def get_queryset(self, *args, **kwargs):
-		qs = Song.objects.all()
-		query = self.request.GET.get("q", None)
-		if query is not None:
-			qs = qs.filter(
-				Q(songs__icontains=query)|
-				Q(tags__name__icontains=query)|
-				Q(mood__icontains=query)|
-				Q(recommendation_one__icontains=query)|
-				Q(recommendation_two__icontains=query)|
-				Q(recommendation_three__icontains=query)|
-				Q(recommendation_four__icontains=query)|
-				Q(recommendation_five__icontains=query)
-			)
-		return qs
-		
-	
-class SongDetailView(DetailView):
-	queryset = Song.objects.all()
-
-
-
-"""
 from googleapiclient.discovery import build
 from dotenv import load_dotenv
 import os
 
 import pandas as pd
 import json
+
+from songs.models import NewVideo
 
 load_dotenv()
 
@@ -67,7 +30,7 @@ def search_api():
 
     request = youtube.search().list(
         part='id,snippet',
-        maxResults=50,
+        maxResults=10,
         q='instrumental',
         relevanceLanguage='en',
         type='video',
@@ -78,18 +41,48 @@ def search_api():
     videos = []
     result_count = 0
 
+    #new_videos = NewVideo.objects.all()
+
     for search_result in request['items']:
         video_title = search_result['snippet']['title']
         video_title = html_reverse_escape(video_title)
         video_id = search_result['id']['videoId']
+        try:
+            new_videos = NewVideo(video_id=video_id, video_title=video_title)
+            """
+            new_videos = (NewVideo.query.get(video_id) or
+                NewVideo(video_id=video_id, video_title=video_title))
+            """
+            new_videos.save()
+        except:
+            pass
+
+        """
+        if search_result['id']['videoId'] not in [i.video_id for i in new_videos]:
+            new_videos = NewVideo.objects.create(video_id=search_result['id']['videoId'],
+                video_title=html_reverse_escape(search_result['snippet']['title']))
+            new_videos.save()
+        """
+class Command(BaseCommand):
+    def handle(self, *args, **options):
+        print("Pulling data from YouTube API and saving")
+        search_api()
 
 
+
+
+        """
+        video_title = search_result['snippet']['title']
+        video_title = html_reverse_escape(video_title)
+        video_id = search_result['id']['videoId']
+        """
+        
     #return video_title, video_id
 
     
         # videos.append((video_title, video_id))
     
-    
+    """
     videos = pd.Series(videos).to_json()
     parsed = json.loads(videos)
     print(json.dumps(parsed, indent=4, sort_keys=True))
@@ -97,11 +90,3 @@ def search_api():
     
     return videos
 	"""
-
-
-
-
-
-
-
-
