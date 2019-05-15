@@ -17,7 +17,7 @@ class Tag(models.Model):
 
 
 class Song(models.Model):
-	songs							= models.CharField(max_length=200, null=True, blank=True)
+	songs							= models.CharField(db_index=True, max_length=200, null=True, blank=True)
 	tags 							= TaggableManager()
 	# api_tags						= models.ManyToManyField('Song', related_name='tag_songs', null=True, blank=True)
 	api_tags						= models.ManyToManyField(Tag)
@@ -68,12 +68,41 @@ def pre_save_song_receiver(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_song_receiver, sender=Song)
 
 
+class NewVideoTag(models.Model):
+	topics = models.TextField(null=True, blank=True)
+
+	def __str__(self):
+		return self.topics
+
+
+
 class NewVideo(models.Model):
-	video_id 	= models.CharField(max_length=11, null=True, blank=True)
-	video_title = models.TextField(null=True, blank=True)
+	MOOD_CHOICES = (
+	('HAPPY', 'Happy'),
+	('IN-LOVE', 'In-Love'),
+	('SAD', 'Sad'),
+	('CONFIDENT-SASSY', 'Confident-sassy'),
+	('CHILL', 'Chill'),
+	('ANGRY', 'Angry'),
+	)
+	video_title 	= models.TextField(db_index=True, null=True, blank=True, unique=True)
+	video_id 		= models.CharField(max_length=11, null=True, blank=True)
+	moods 			= models.CharField(choices=MOOD_CHOICES, max_length=20,  default='HAPPY')
+	new_video_tags 	= models.ManyToManyField(NewVideoTag)
 
 	def __str__(self):
 		return self.video_title
+
+class NewComment(models.Model):
+	video_id = models.CharField(max_length=11, null=True, blank=True)
+	comments = models.TextField(null=True, blank=True)
+	moods = models.TextField(null=True, blank=True)
+
+	def __str__(self):
+		return self.video_id
+
+
+
 
 	
 	
