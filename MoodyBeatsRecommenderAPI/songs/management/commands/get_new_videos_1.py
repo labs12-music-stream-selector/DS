@@ -30,8 +30,8 @@ def search_api():
 
     request = youtube.search().list(
         part='id,snippet',
-        maxResults=20,
-        q='instrumental',
+        maxResults=50,
+        q='free music no copyright',
         relevanceLanguage='en',
         type='video',
         videoDuration='medium',
@@ -70,25 +70,3 @@ class Command(BaseCommand):
         print("Pulling data from YouTube API and saving")
         search_api()
 
-
-
-
-        """
-        video_title = search_result['snippet']['title']
-        video_title = html_reverse_escape(video_title)
-        video_id = search_result['id']['videoId']
-        """
-        
-    #return video_title, video_id
-
-    
-        # videos.append((video_title, video_id))
-    
-    """
-    videos = pd.Series(videos).to_json()
-    parsed = json.loads(videos)
-    print(json.dumps(parsed, indent=4, sort_keys=True))
-    print(videos)
-    
-    return videos
-	"""

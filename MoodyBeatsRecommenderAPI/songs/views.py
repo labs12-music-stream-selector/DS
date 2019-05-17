@@ -2,22 +2,24 @@ from django.shortcuts import render
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+# from braces.views import PrefetchRelatedMixin
+
 # Create your views here.
 from django.views.generic import (
 	ListView,
 	DetailView,
 )
 
-from .models import Song
+from .models import Song, NewVideo
 
 
 class SongListView(ListView):
 	#model = Song
 	template_name = 'songs/list_view.html'
-	paginate_by = 5
+	paginate_by = 7
 
 	def get_queryset(self, *args, **kwargs):
-		qs = Song.objects.all()
+		qs = Song.objects.all().order_by('id')
 		query = self.request.GET.get("q", None)
 		if query is not None:
 			qs = qs.filter(
@@ -34,7 +36,31 @@ class SongListView(ListView):
 		
 	
 class SongDetailView(DetailView):
-	queryset = Song.objects.all()
+    queryset = Song.objects.all()
+
+
+
+class NewVideoListView(ListView):
+    template_name = 'songs/new_video_list_view.html'
+    paginate_by = 10
+
+    def get_queryset(self, *args, **kwargs):
+        qs = NewVideo.objects.all().order_by('video_id')
+        query = self.request.GET.get("q", None)
+        if query is not None:
+            qs = qs.filter(
+                Q(video_title__icontains=query)|
+                Q(moods__icontains=query)|
+                # you need the __topics from NewVideo tags because it's a reverse relation
+                Q(new_video_tags__topics__icontains=query)
+            )
+        return qs
+
+
+
+
+
+
 
 
 

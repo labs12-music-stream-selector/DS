@@ -22,13 +22,17 @@
     <link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
 
-	<title>MoodiBeats</title>
+	<title>{% block title %}MoodiBeats{% endblock title %}</title>
 
 <style>
   .back-to-top i {
  
   font-size: 50px;
  
+}
+
+h3 {
+  color:#777777;
 }
 
 </style>
@@ -82,12 +86,27 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'terms' %}">Terms of Service</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'new-video' %}">New Music</a>
+      </li>
        <li class="nav-item">
-        <a class="nav-link" href="{{ 'https://moody-beats-recommender-api.herokuapp.com/songs' }}" >Recommendations</a>
+        <a class="nav-link" href="{% url 'song:song' %}">Recommendations</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">{{ user.username }}</a>
       </li>
+      {% if user.is_authenticated %}
+      <li>
+        <a class="nav-link" href="{% url 'auth_logout' %}">Logout</a>
+      </li>
+      {% else %}
+      <li>
+        <a class="nav-link" href="{% url 'auth_login' %}">Login</a>
+      </li>
+      <li>
+        <a class="nav-link" href="{% url 'registration_register' %}">Register</a>
+      </li>
+      {% endif %}
       <!--<li class="nav-item">
         <a class="nav-link" href="{% url 'api:api' %}">API</a>
       </li>-->

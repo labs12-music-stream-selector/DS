@@ -3,8 +3,23 @@ from rest_framework import serializers
 from songs.models import (
 	Song,
 	Tag,
-	NewVideo
+	NewVideo,
+	NewComment,
+	NewVideoTag,
+	NewVideoStats,
+	NewVideoCorrectMood,
 )
+
+class NewVideoStatsSerializer(serializers.ModelSerializer):
+	new_video = serializers.StringRelatedField()
+	class Meta:
+		model = NewVideoStats
+		fields = [
+			'video_id',
+			'video_view_count',
+			'video_like_count',
+			'new_video',
+		]
 
 
 
@@ -59,10 +74,64 @@ class SongSerializer(serializers.ModelSerializer):
 		)
 		#lookup_field = 'slug'
 
+class NewVideoTagSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = NewVideoTag
+		fields = [
+			'topics',
+		]
+
 class NewVideoSerializer(serializers.ModelSerializer):
+	new_video_tags = NewVideoTagSerializer(many=True)
+
 	class Meta:
 		model = NewVideo
+		fields = [
+			'video_title',
+			'video_id',
+			'moods',
+			'new_video_tags',
+		]
+
+class NewVideoDetailSerializer(serializers.ModelSerializer):
+	new_video_tags = NewVideoTagSerializer(many=True)
+
+	class Meta:
+		model = NewVideo
+		depth=3
+		fields = [
+			'video_id',
+			'video_title',
+			'moods',
+			'new_video_tags',
+		]
+
+class NewVideoCorrectMoodSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = NewVideoCorrectMood
+		fields = [
+			'video_id',
+			'video_title',
+			'correct_moods',
+		]
+
+
+
+class NewCommentSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = NewComment
 		fields = '__all__'
+
+"""
+class NewVideoStatsDetailSerializer(serializers.ModelSerializer):
+	new_video_stats = NewVideoStatsSerializer(many=True)
+
+	class Meta:
+		model = NewVideoStats
+		fields = [
+			'new_video_stats',
+		]
+"""
 
 
 
