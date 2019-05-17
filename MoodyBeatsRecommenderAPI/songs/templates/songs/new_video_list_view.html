@@ -1,0 +1,97 @@
+{% extends "songs/base.html" %}
+
+{% block content %}
+	<div class='text-center'>
+	{% include "songs/search_form_2.html" with request=request %}
+  {% if request.GET.q %}
+    <p>You searched for <b>{{ request.GET.q }}</b></p>
+  {% endif %}
+  
+	</div>
+
+<div class='container'>
+<div class='row'>
+<div class='col'>
+
+<h1>MoodiBeats API</h1>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center pagination-sm">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1"><small>On page <strong>{{ page_obj.number }}</strong>. Showing <strong>{{ page_obj.object_list.count }}</strong> of total <strong>{{ page_obj.paginator.count }}</strong> items.</small></a>
+        </li>
+ 
+    </ul>
+</nav>
+
+
+{% for song in object_list %}
+
+<p></p>
+
+<h3>Video:  {{ song.video_title }}</h3>
+<!--<div class="embed-responsive embed-responsive-16by9">
+{% if song.song_embed_code %}
+{{ song.song_embed_code|safe }}<br/>
+{% endif %}
+</div>-->
+
+<div class="embed-responsive embed-responsive-16by9">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ song.video_id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+{% endfor %}
+
+{% if is_paginated %}
+<hr>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center pagination-sm">
+        {% if page_obj.has_previous %}
+          <!-- If it ain't a search result display, don't append the search query
+               to the URL. -->
+          {% if not search %}
+          <li class="page-item">
+              <a class="page-link" href="{% url 'new-video' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+          </li>
+          {% else %}
+          <!-- Append the searched query to the URL, so that on a search results page,
+               the pagination don't revert to listing all the listview items. -->
+            <li class="page-item">
+              <a class="page-link" href="{% url 'new-video' %}?{{search}}&page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+          </li>
+          {% endif %}
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        {% endif %} 
+        {% for object in page_obj.paginator.page_range %}
+            <li class="page-item"><a class="page-link" href="{% url 'new-video' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+        {% endfor %} 
+        {% if page_obj.has_next %}
+          {% if not search %}
+          <li class="page-item">
+              <a class="page-link" href="{% url 'new-video' %}?page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="{% url 'new-video' %}?{{search}}&page={{ page_obj.next_page_number }}">Next</a>
+          </li>
+          {% endif %}
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Next</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+</div>
+</div>
+</div>
+
+
+
+{% endblock content %}

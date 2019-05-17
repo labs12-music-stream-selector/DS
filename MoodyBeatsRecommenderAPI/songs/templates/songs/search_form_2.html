@@ -1,6 +1,6 @@
 {% load crispy_forms_tags %}
 
-<form method='GET' action='{% url "song:song" %}'>
+<form method='GET' action='{% url "new-video" %}'>
 	<div class='input-group'>
 	<input class="form-control" type='text' size="40" name='q' placeholder='Search songs' value='{{ request.GET.q }}'/>
 	<span class='input-group-btn'>
@@ -11,3 +11,8 @@
 	</div>
 </form>
 
+
+
+
+
+<!--<input type='Submit' class="btn btn-primary" role="button" />-->
