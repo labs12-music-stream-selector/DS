@@ -49,6 +49,35 @@ class Song(models.Model):
 		return reverse("song:detail", kwargs={"pk":self.pk})
 
 
+class NewVideoTag(models.Model):
+    topics = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.topics
+
+
+class NewVideo(models.Model):
+    MOOD_CHOICES = (
+    ('HAPPY', 'Happy'),
+    ('IN-LOVE', 'In-Love'),
+    ('SAD', 'Sad'),
+    ('CONFIDENT-SASSY', 'Confident-sassy'),
+    ('CHILL', 'Chill'),
+    ('ANGRY', 'Angry'),
+    )
+    video_title             = models.TextField(db_index=True, null=True, blank=True, unique=True)
+    video_id                 = models.CharField(max_length=11, null=True, blank=True)
+    video_view_count         = models.IntegerField(null=True, blank=True)
+    video_like_count         = models.IntegerField(null=True, blank=True)
+    video_favorite_count     = models.IntegerField(null=True, blank=True)
+    video_comment_count     = models.IntegerField(null=True, blank=True)
+    moods                     = models.CharField(choices=MOOD_CHOICES, max_length=20,  default='HAPPY')
+    new_video_tags             = models.ManyToManyField(NewVideoTag)
+
+    def __str__(self):
+        return self.video_title
+
+
 def create_slug(instance, new_slug=None):
 	slug = slugify(instance.songs)
 	if new_slug is not None:

@@ -1,15 +1,27 @@
+from dotenv import load_dotenv  # this is in youtube_api_search
 from flask import Flask, request
 from flask_cors import CORS
+from googleapiclient.discovery import build  # this is in youtube_api_search
+import os  # shouldn't need this
+from os.path import join, dirname  # shouldn't need this
 import pandas as pd
 import pickle
 
 app = Flask(__name__)
 CORS(app)
 
+# dotenv_path = join(dirname(__file__), '.env')
+# load_dotenv(dotenv_path)
+
+# DEVELOPER_KEY = os.getenv('DEVELOPER_KEY')
+# YOUTUBE_API_SERVICE_NAME = 'youtube'
+# YOUTUBE_API_VERSION = 'v3'
+
 
 @app.route('/')
 def index():
-    return "Add '/api/Track Title With Spaces Between Words' to end of Heroku app URL in address field. Or, for HTML-compliance, '/api/Track%20Title%20With..."
+    return 'Add "/api/Track Title With Spaces Between Words" to end of Heroku app URL in address field. \
+           Or, for HTML-compliance, "/api/Track%20Title%20With..."'
 
 
 @app.route('/api/<track_title>')

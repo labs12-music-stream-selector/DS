@@ -44,10 +44,10 @@ def main():
         video_title = html_reverse_escape(video_title)
         video_id = search_result['id']['videoId']
         try:
-            print('search_result', result_count, ':') 
-            print(video_title)
-            print('video_id is:', video_id, '\n')
-            # videos.append('{} ({})'.format(video_title, video_id))
+            # print('search_result', result_count, ':') 
+            # print(video_title)
+            # print('video_id is:', video_id, '\n')
+            videos.append((video_title, video_id))
         except UnicodeError as e:
             print('Unicode error prevented printing', result_count, '\n')
             result_count += 1
@@ -55,8 +55,13 @@ def main():
         result_count += 1
     
 
-    # print('\nVideos:\n', '\n'.join(videos))
-    # return videos
+    for video in videos:
+        try:
+            print(video)
+        except UnicodeError:
+            print('Unicode error prevented printing a video.\n')
+            continue
+    return videos
 
 
 if __name__ == '__main__':
