@@ -12,7 +12,7 @@ cycler==0.10.0
 decorator==4.3.2
 defusedxml==0.5.0
 dj-database-url==0.5.0
-Django==1.11.19
+Django==2.2.24
 django-sql-explorer==1.1.2
 django-storages==1.6.5
 djangorestframework==3.3.3
